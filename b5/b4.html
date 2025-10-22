@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+  <title>Cửa hàng Sách ABC</title>
+</head>
+
+<body>
+  <header class="site-header">
+    <h1>Cửa hàng Sách ABC</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Trang chủ</a></li>
+        <li><a href="#">Sản phẩm</a></li>
+        <li><a href="#">Liên hệ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <p>Chọn cuốn sách yêu thích — giao hàng nhanh, giá tốt!</p>
+    </section>
+
+    <!--  Tìm kiếm và thêm sản phẩm -->
+    <section>
+      <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
+      <button id="searchBtn">Tìm</button>
+      <button id="addProductBtn">Thêm sản phẩm</button>
+    </section>
+
+    <!-- Danh sách sản phẩm -->
+    <section>
+      <h2>Danh sách sản phẩm</h2>
+      <div id="product-list">
+        <article class="product-item">
+          <h3>Sách Tiếng Anh Giao Tiếp</h3>
+          <img src="https://cms.prepedu.com/uploads/sach_word_power_made_easy_norman_lewis_54f8800c3b.jpg" alt="Sách Tiếng Anh Giao Tiếp">
+          <p>Luyện tập tiếng Anh thực tế cho mọi lứa tuổi.</p>
+          <p><span class="price">110.000đ</span></p>
+        </article>
+
+        <article class="product-item">
+          <h3>Sách Từ Vựng TOEIC</h3>
+          <img src="https://cms.prepedu.com/uploads/sach_word_power_made_easy_norman_lewis_54f8800c3b.jpg" alt="Sách Từ Vựng TOEIC">
+          <p>Bí quyết học từ vựng nhanh và nhớ lâu.</p>
+          <p><span class="price">120.000đ</span></p>
+        </article>
+
+        <article class="product-item">
+          <h3>Sách Ngữ Pháp Căn Bản</h3>
+          <img src="https://cms.prepedu.com/uploads/sach_word_power_made_easy_norman_lewis_54f8800c3b.jpg" alt="Sách Ngữ Pháp Căn Bản">
+          <p>Dành cho người mới bắt đầu học tiếng Anh.</p>
+          <p><span class="price">95.000đ</span></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Form thêm sản phẩm (ẩn mặc định) -->
+    <section>
+      <form id="addProductForm" class="hidden">
+        <h3>Thêm sản phẩm mới</h3>
+
+        <label for="newName">Tên sản phẩm:</label>
+        <input type="text" id="newName" required>
+
+        <label for="newPrice">Giá:</label>
+        <input type="number" id="newPrice" min="1" required>
+
+        <label for="newDesc">Mô tả:</label>
+        <textarea id="newDesc" rows="3"></textarea>
+
+        <label for="newImage">Link ảnh (tùy chọn):</label>
+        <input type="text" id="newImage">
+
+        <button type="submit">Thêm</button>
+        <button type="button" id="cancelBtn">Hủy</button>
+        <p id="errorMsg" style="color:red;"></p>
+      </form>
+    </section>
+
+    <!-- Form liên hệ -->
+    <section>
+      <h2>Liên hệ với chúng tôi</h2>
+      <form>
+        <div>
+          <label for="name">Tên:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+          <label for="message">Nội dung:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit">Gửi</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Cửa hàng Sách ABC — Địa chỉ: Hà Nội</p>
+  </footer>
+    <!-- Nhúng file JS -->
+  <script src="script.js"></script>
+</body>
+</html>
