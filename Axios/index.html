@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management System (CRUD)</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+    <h2>User Management System</h2>
+
+    <div id="error-msg"></div>
+
+    <input type="text" id="searchInput" class="search-box" placeholder="Search users by name..." onkeyup="handleSearch()">
+
+    <div class="form-container">
+        <form id="userForm">
+            <div class="form-group">
+                <input type="text" id="name" placeholder="Full Name" required>
+                <input type="email" id="email" placeholder="Email Address" required>
+                <input type="text" id="phone" placeholder="Phone Number" required>
+                <input type="text" id="address.street" placeholder="Address" required>
+                <input type="text" id="company.name" placeholder="Company" required>
+                <input type="hidden" id="userId">
+
+                <div style="display: flex; gap: 5px;">
+                    <button type="submit" id="submitBtn" class="btn-submit">Add</button>
+                    <button type="button" id="updateBtn" class="btn-update" onclick="handleUpdate()">Update</button>
+                    <button type="button" id="cancelBtn" class="btn-cancel" onclick="resetForm()">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Company</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            </tbody>
+    </table>
+
+    <div class="pagination">
+        <button id="prevBtn" onclick="changePage(-1)">Previous</button>
+        <span id="pageInfo" style="align-self: center;">Page 1</span>
+        <button id="nextBtn" onclick="changePage(1)">Next</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

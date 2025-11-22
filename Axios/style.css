@@ -1,0 +1,122 @@
+/* Basic Styling */
+body { 
+    font-family: 'Segoe UI', sans-serif; 
+    max-width: 1000px; 
+    margin: 2rem auto; 
+    padding: 0 1rem; 
+    background-color: #f4f4f9; 
+}
+h2 { color: #333; margin-bottom: 20px; }
+
+/* Form Styling */
+.form-container { 
+    background: white; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+    margin-bottom: 20px; 
+}
+
+.form-group { 
+    display: flex; 
+    flex-wrap: wrap; /* Tự động xuống dòng */
+    gap: 15px; 
+    align-items: center; 
+}
+
+
+input { 
+    flex: 1 1 30%;
+    min-width: 200px; 
+    padding: 10px; 
+    border: 1px solid #ddd; 
+    border-radius: 4px; 
+}
+
+/* Nút bấm form */
+.btn-container {
+    display: flex;
+    gap: 5px;
+}
+button { 
+    cursor: pointer; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 4px; 
+    color: white; 
+    font-weight: bold; 
+    white-space: nowrap;
+}
+.btn-submit { background-color: #28a745; }
+.btn-update { background-color: #ffc107; color: black; display: none; }
+.btn-cancel { background-color: #6c757d; display: none; } 
+
+/* Search Styling */
+.search-box { 
+    margin-bottom: 15px; 
+    width: 100%; 
+    box-sizing: border-box; 
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Table Styling */
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    background: white; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+    border-radius: 8px; 
+    overflow: hidden; 
+}
+th, td { 
+    padding: 12px; 
+    text-align: left; 
+    border-bottom: 1px solid #ddd; 
+    vertical-align: middle;
+}
+th { background-color: #007bff; color: white; }
+tr:hover { background-color: #f1f1f1; }
+
+/* Action Buttons in Table */
+td:last-child {
+    display: flex;
+    flex-direction: column; 
+    gap: 5px;
+    border-bottom: none;
+}
+
+.btn-edit { 
+    background-color: #17a2b8; 
+    padding: 5px 10px; 
+    font-size: 0.8rem; 
+    text-align: center;
+    width: 100%;
+}
+
+.btn-delete { 
+    background-color: #dc3545; 
+    padding: 5px 10px; 
+    font-size: 0.8rem; 
+    text-align: center;
+    width: 100%;
+}
+
+/* Pagination Styling */
+.pagination { 
+    margin-top: 20px; 
+    display: flex; 
+    justify-content: center; 
+    gap: 10px; 
+}
+.pagination button { background-color: #007bff; }
+.pagination button:disabled { background-color: #ccc; cursor: not-allowed; }
+
+/* Error Message */
+#error-msg { 
+    color: red; 
+    margin-bottom: 10px; 
+    display: none; 
+    font-weight: bold;
+}
