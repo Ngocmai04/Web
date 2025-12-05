@@ -19,8 +19,17 @@ mongoose.connect('mongodb://localhost:27017/student_db')
 // Import model Student
 const Student = require('./src/Student');
 
+const ensureDbConnected = (req, res, next) => {
+  if (mongoose.connection.readyState !== 1) {
+    return res.status(503).json({
+      error: 'Không thể kết nối tới MongoDB. Hãy đảm bảo container Mongo đang chạy.'
+    });
+  }
+  return next();
+};
+
 // Route API lấy danh sách học sinh
-app.get('/api/students', async (req, res) => {
+app.get('/api/students',ensureDbConnected, async (req, res) => {
   try {
     const students = await Student.find();
     res.json(students);
@@ -28,7 +37,7 @@ app.get('/api/students', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-app.post('/api/students', async (req, res) => {
+app.post('/api/students',ensureDbConnected, async (req, res) => {
   try {
     const newStudent = await Student.create(req.body);
     res.status(201).json(newStudent);
