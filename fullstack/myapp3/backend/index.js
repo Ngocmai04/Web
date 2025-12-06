@@ -45,6 +45,36 @@ app.post('/api/students',ensureDbConnected, async (req, res) => {
     res.status(400).json({ error: e.message });
   }
 });
+app.put('/api/students/:id',ensureDbConnected, async (req, res) => {
+  try {
+    // Cập nhật học sinh theo ID
+    const updatedStu = await Student.findByIdAndUpdate(
+      req.params.id,  
+      req.body,       
+      { new: true }   
+    );
+
+    if (!updatedStu) {
+      return res.status(404).json({ error: "Student not found" });
+    }
+
+    res.json(updatedStu); 
+  } catch (err) {
+    res.status(400).json({ error: err.message }); 
+  }
+});
+app.get('/api/students/:id', ensureDbConnected, async (req, res) => {
+  try {
+    const student = await Student.findById(req.params.id);
+    if (!student) {
+      return res.status(404).json({ error: "Student not found" });
+    }
+    res.json(student);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
 
 // Thiết lập cổng
 const PORT = 5000;
