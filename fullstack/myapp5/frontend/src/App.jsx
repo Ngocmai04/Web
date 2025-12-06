@@ -12,7 +12,7 @@ function App() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
-
+  const [sortAsc, setSortAsc] = useState(true);
   const isEditing = !!id;
 
   // Lấy danh sách học sinh
@@ -79,6 +79,11 @@ function App() {
   const filteredStudents = students.filter(st =>
     st.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  const sortedStudents = [...filteredStudents].sort((a, b) => {
+    if (a.name < b.name) return sortAsc ? -1 : 1;
+    if (a.name > b.name) return sortAsc ? 1 : -1;
+    return 0;
+  });
 
   return (
     <div className="container my-5">
@@ -96,11 +101,18 @@ function App() {
       </div>
 
       {/* Danh sách học sinh */}
-      {filteredStudents.length === 0 ? (
+      {sortedStudents.length === 0 ? (
         <p>Không có học sinh nào khớp với từ khóa.</p>
       ) : (
         <ul className="list-group my-4">
-          {filteredStudents.map(st => (
+          <button
+            className="btn btn-secondary btn-sm mb-2"
+            onClick={() => setSortAsc(prev => !prev)}
+          >
+            Sắp xếp theo tên {sortAsc ? "A->Z" : "Z->A"}
+          </button>
+      
+          {sortedStudents.map(st => (
             <li key={st._id} className="list-group-item">
               <strong>{st.name}</strong> — {st.age} tuổi — Lớp {st.studentClass}
               <button
